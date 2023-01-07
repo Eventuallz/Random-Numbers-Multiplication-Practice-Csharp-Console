@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "RandNumMultiplier_150722/1.0.0": {
+        "runtime": {
+          "RandNumMultiplier_150722.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "RandNumMultiplier_150722/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

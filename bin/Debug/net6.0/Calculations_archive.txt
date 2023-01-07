@@ -1,0 +1,28 @@
+Two digit number multiplications
+94 * 85 = 7990
+
+One digit number multiplications
+2 * 6 = 12
+
+Three digit number multiplications
+186 * 146 = 27156
+
+One digit number multiplications
+3 * 4 = 12
+Total Time: 00:00:01.0822516
+
+One digit number multiplications
+1 * 5 = 5
+Total Time: 00:00:00.3537820
+
+One digit number multiplications
+4 * 2 = 8
+Total Time: 00:00:00.3948241
+
+One digit number multiplications
+5 * 8 = 40, Answered: 40, Correct: True
+Total Time: 00:00:04.7189645
+
+Two digit number multiplications
+83 * 24 = 1992, Answered: 1736, Correct: False
+Total Time: 00:01:05.8738045

@@ -1,0 +1,12 @@
+
+One digit number multiplications
+3 * 6 = 18, Answered: 18, Correct: True
+Total Time: 00:00:02.2388492
+
+One digit number multiplications
+3 * 6 = 18, Answered: 18, Correct: True
+Total Time: 00:00:01.9845544
+
+One digit number multiplications
+7 * 6 = 42, Answered: 42, Correct: True
+Total Time: 00:00:05.5358791
