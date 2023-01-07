@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics;
-using System.Text.RegularExpressions;
 
 // stopwatch knowledge: https://www.educba.com/c-sharp-stopwatch/
 // and: https://www.dotnetperls.com/stopwatch
@@ -7,37 +6,73 @@ using System.Text.RegularExpressions;
 // Filepath variable.
 var path = $@"{Directory.GetCurrentDirectory()}\Calculations.txt";
 
-// User Interface
+// User interface
 while (true)
 {
     Console.Clear();
     Console.CursorVisible = false;
-    Console.WriteLine("Choose practice room (press number in brackets).");
-    Console.WriteLine("\n[1]-digit\n[2]-digit\n[3]-digit\n[V]iew past exercises\n[E]xit");
+    Console.WriteLine("Welcome to practicing multiplication!");
+    Console.WriteLine("\n[S]tart practicing\n[V]iew past exercises\n[E]xit");
     var choice = Console.ReadKey(true);
     switch (choice.Key)
     {
-        case ConsoleKey.D1:
-        case ConsoleKey.NumPad1:
+        // The user can choose how many digit multiplications they want to practice.
+        case ConsoleKey.S:
         {
             Console.Clear();
-            Multiplication(1, 9, "One");
-        }
-            break;
+            Console.CursorVisible = true;
+            Console.Write("Enter digits to multiply by: ");
+            var digits = 0;
+            var parsed = false;
+            var fail = 0;
+            do
+            {
+                if (!parsed && fail > 0) // If the parsing did fail once, display the same but clear the previous lines.
+                {
+                    for (var i = 2; i <= 3; i++)
+                    {
+                        ClearLine(0, i);
+                    }
 
-        case ConsoleKey.D2:
-        case ConsoleKey.NumPad2:
-        {
-            Console.Clear();
-            Multiplication(10, 99, "Two");
-        }
-            break;
+                    Console.SetCursorPosition(0, 0);
+                    Console.CursorVisible = true;
+                    Console.WriteLine("Please enter a number greater than 0.");
+                    Console.Write("Enter digits to multiply by: ");
+                    parsed = int.TryParse(Console.ReadLine(), out digits);
+                    fail++;
+                }
+                else // Just display the prompt. This will be displayed first.
+                {
+                    Console.SetCursorPosition(0, 0);
+                    Console.Write("Enter digits to multiply by: ");
+                    parsed = int.TryParse(Console.ReadLine(), out digits);
+                    fail++;
+                }
+            } while (!parsed || digits == 0);
 
-        case ConsoleKey.D3:
-        case ConsoleKey.NumPad3:
-        {
-            Console.Clear();
-            Multiplication(100, 999, "Three");
+            // In case of a negative value, the input value gets corrected.
+            if (digits < 0) digits *= -1;
+
+            var startValue = "1";
+            var endValue = "9";
+            for (var i = 1; i < digits; i++)
+            {
+                if (digits > 1)
+                {
+                    endValue += "9";
+                    startValue += "0";
+                }
+            }
+
+            for (var i = 0; i <= 3; i++)
+            {
+                ClearLine(0, i);
+            }
+
+            Console.CursorVisible = false;
+            Console.WriteLine($"{startValue} {endValue}");
+            Console.ReadKey(true);
+            Multiplication(Convert.ToInt32(startValue), Convert.ToInt32(endValue), digits.ToString());
         }
             break;
 
@@ -58,7 +93,10 @@ while (true)
 
         // Exit.
         case ConsoleKey.E:
+        {
             Console.WriteLine("\nExiting...");
+            Environment.Exit(exitCode: 0);
+        }
             return;
 
         default:
@@ -76,7 +114,7 @@ void Multiplication(int startValue, int endValue, string saveText)
     var result = a * b;
 
     // 3 second countdown until start.
-    for (var second = 3; second >= 0; second--)
+    for (var second = 3; second > 0; second--)
     {
         Console.SetCursorPosition(0, 0);
         Console.Write($"Timer starts in {second} ");
@@ -88,7 +126,7 @@ void Multiplication(int startValue, int endValue, string saveText)
 
     // Making stopwatch.
     var stopwatch = new Stopwatch();
-    
+
     // Starting stopwatch.
     stopwatch.Start();
     // Setting cursor position up again for a prettier display.
@@ -99,22 +137,34 @@ void Multiplication(int startValue, int endValue, string saveText)
     // User answer input.
     var userResult = 0;
     var parsed = false;
+    var fail = 0;
     do
     {
-        if (!parsed) // If the parsing did fail once, display the same but clear the previous lines.
+        if (!parsed && fail > 0) // If the parsing did fail once, display the same but clear the previous lines.
         {
-            ClearLine(0, 2);
+            for (var i = 2; i <= 3; i++)
+            {
+                ClearLine(0, i);
+            }
+
             Console.SetCursorPosition(0, 2);
+            Console.CursorVisible = true;
             Console.WriteLine("Please enter a number.");
             Console.Write("Enter result: ");
             parsed = int.TryParse(Console.ReadLine(), out userResult);
+            fail++;
         }
         else // Just display the prompt. This will be displayed first.
         {
-            Console.WriteLine("Enter result: ");
+            Console.SetCursorPosition(0, 2);
+            Console.Write("Enter result: ");
+            parsed = int.TryParse(Console.ReadLine(), out userResult);
+            fail++;
         }
     } while (!parsed);
 
+    Console.CursorVisible = false;
+    
     // Stopping timer and saving time in a variable.
     stopwatch.Stop();
     var total = stopwatch.Elapsed;
@@ -126,7 +176,7 @@ void Multiplication(int startValue, int endValue, string saveText)
 
     // Display results.
     Console.SetCursorPosition(0, 2);
-    Console.Write($"Your answer: {userResult}\nResult:      {result}\nTotal time: {total}");
+    Console.Write($"Your answer: {userResult}\nResult:      {result}    \nTotal time: {total}");
 
     // Prompt to ask for saving the results in a text file.
     Console.CursorVisible = true;
@@ -139,7 +189,8 @@ void Multiplication(int startValue, int endValue, string saveText)
         case ConsoleKey.Y:
         {
             using var writer = new StreamWriter(path, true);
-            writer.WriteLine($"{saveText} digit number multiplications\n{a} * {b} = {result}, Answered: {userResult}, Correct: {correct}\nTotal Time: {total}\n");
+            writer.WriteLine(
+                $"{saveText} digit number multiplications\n{a} * {b} = {result}, Answered: {userResult}, Correct: {correct}\nTotal Time: {total}\n");
         }
             break;
 
