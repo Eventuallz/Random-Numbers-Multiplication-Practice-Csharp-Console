@@ -1,13 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uAAgCwl4DJuqJLV+tDybw1EGm+HGQKlE6ToQCL9J4sPz8lKunSv6UAVfri5UqfDMv0+Y9/DuDmJ5QdW3kUZ3bA==",
+  "dgSpecHash": "cmFJCriZJtd9YVRu5l0jIJbIpBdR561n7Smx/lDbEG+zE3K6DBSLmA81LZfF1FUWcuO8W0eiv201+oOvA8N8GQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Black Panther\\Studies\\Csharp\\Private\\RandomNumberMultiplier\\RandNumMultiplier_150722.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Black Panther\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.12\\microsoft.netcore.app.ref.6.0.12.nupkg.sha512",
-    "C:\\Users\\Black Panther\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.12\\microsoft.windowsdesktop.app.ref.6.0.12.nupkg.sha512",
-    "C:\\Users\\Black Panther\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.12\\microsoft.aspnetcore.app.ref.6.0.12.nupkg.sha512",
-    "C:\\Users\\Black Panther\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.12\\microsoft.netcore.app.host.win-x64.6.0.12.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }
