@@ -1,12 +1,35 @@
+2 digit number multiplications
+13 * 51 = 663, Answered: 780, Correct: False
+Total Time: 00:00:35.1416994
 
-One digit number multiplications
+1 digit number multiplications
+2 * 4 = 8, Answered: 8, Correct: True
+Total Time: 00:00:03.1146545
+
+1 digit number multiplications
+5 * 4 = 20, Answered: 20, Correct: True
+Total Time: 00:00:02.8040064
+
+1 digit number multiplications
 3 * 6 = 18, Answered: 18, Correct: True
-Total Time: 00:00:02.2388492
+Total Time: 00:00:04.8019549
 
-One digit number multiplications
-3 * 6 = 18, Answered: 18, Correct: True
-Total Time: 00:00:01.9845544
+1 digit number multiplications
+8 * 7 = 56, Answered: 56, Correct: True
+Total Time: 00:00:07.4652119
 
-One digit number multiplications
-7 * 6 = 42, Answered: 42, Correct: True
-Total Time: 00:00:05.5358791
+2 digit number multiplications
+13 * 51 = 663, Answered: 780, Correct: False
+Total Time: 00:00:35.1416994
+
+1 digit number multiplications
+2 * 4 = 8, Answered: 8, Correct: True
+Total Time: 00:00:03.1146545
+
+2 digit number multiplications
+13 * 51 = 663, Answered: 780, Correct: False
+Total Time: 00:00:35.1416994
+
+1 digit number multiplications
+2 * 4 = 8, Answered: 8, Correct: True
+Total Time: 00:00:03.1146545

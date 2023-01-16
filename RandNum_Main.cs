@@ -70,8 +70,7 @@ while (true)
             }
 
             Console.CursorVisible = false;
-            Console.WriteLine($"{startValue} {endValue}");
-            Console.ReadKey(true);
+            // Console.ReadKey(true);
             Multiplication(Convert.ToInt32(startValue), Convert.ToInt32(endValue), digits.ToString());
         }
             break;
@@ -81,13 +80,31 @@ while (true)
         {
             Console.Clear();
             var readText = File.ReadAllText(path);
-            var lines = readText.Split('\n');
-            foreach (var line in lines)
+            var lines = readText.Split("\n\n");
+            for (var i = 0; i < lines.Length; i++)
             {
-                Console.WriteLine(line);
-            }
+                var tab = (i > 0) ? "\n" : "";
+                
+                Console.WriteLine($"{tab}{i + 1}. element:");
+                Console.WriteLine(lines[i]);
 
-            Console.ReadKey(true);
+                if (i % 3 == 0)
+                {
+                    Console.CursorVisible = true;
+                    var userInput = Console.ReadKey(true);
+                    Console.CursorVisible = false;
+
+                    if (userInput.Key is ConsoleKey.Q)
+                    {
+                        break;
+                    }
+                }
+
+                if (i == lines.Length - 1)
+                {
+                    Console.ReadKey(true);
+                }
+            }
         }
             break;
 
@@ -101,6 +118,7 @@ while (true)
 
         default:
             Console.WriteLine("Wrong Input");
+            Console.ReadKey(true);
             break;
     }
 }
@@ -164,7 +182,7 @@ void Multiplication(int startValue, int endValue, string saveText)
     } while (!parsed);
 
     Console.CursorVisible = false;
-    
+
     // Stopping timer and saving time in a variable.
     stopwatch.Stop();
     var total = stopwatch.Elapsed;
